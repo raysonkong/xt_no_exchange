@@ -1,3 +1,3 @@
 #!/bin/bash/
 
-python3 huobi_all.py
+python3 okx_all.py
