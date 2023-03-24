@@ -13,7 +13,7 @@ SLEEP_TIME = 0.2
 # ## setup config_cmc.py in the same folder
 # ##
 
-# EXCHANGES=["OKX"]  # only one
+# EXCHANGES=["MEXC"]  # only one
 
 # WANTED_CURRENCIES = ['USDT']  # only one
 
@@ -22,7 +22,7 @@ SLEEP_TIME = 0.2
 # # Group size is the max number of coins per each .txt file (output)
 # GROUP_SIZE = len(EXCHANGES) * 1000
 
-# URL = 'https://www.okx.com/api/v5/market/tickers?instType=SPOT'
+# URL = 'https://www.mexc.com/open/api/v2/market/ticker'
 # ## end of Config file
 
 
@@ -51,18 +51,17 @@ response = requests.get(URL)
 
 coins = response.json()['data']
 
-#print(coins[0]['instID'])
+#print(coins)
 
 result = []
 for coin in coins:
-    if coin['instId'][-len(WANTED_CURRENCIES[0]):] == WANTED_CURRENCIES[0]:
-        result.append(coin['instId'].replace('-', ''))
+    if coin['symbol'][-len(WANTED_CURRENCIES[0]):] == WANTED_CURRENCIES[0]:
+        result.append(coin['symbol'].replace('_', ''))
 
 #print(result)
 
 
-
-#================================================
+# ================================================
 # Group a list of many items 
 #
 # to a list containing lists of n 
