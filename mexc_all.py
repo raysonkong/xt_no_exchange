@@ -99,7 +99,7 @@ grouped_pairs = group_into_n(result, n)
 # /Users/raysonkong/code/python/webscrapping/scripts_v2/cmc_api_to_tradingview/outputs
 def output_to_text_file(nested_grouped_pairs):
     for idx, group in enumerate(nested_grouped_pairs):
-            filename=f"{os.getcwd()}/{EXCHANGES[0]}_ALL_{generation_date}total{len(result)}/-0.4 {EXCHANGES[0]}_ALL p.{idx+1} ({generation_date}).txt"
+            filename=f"{os.getcwd()}/{EXCHANGES[0]}_ALL_{generation_date}_total_{len(result)}/-0.4 {EXCHANGES[0]}_ALL p.{idx+1} ({generation_date}).txt"
             os.makedirs(os.path.dirname(filename), exist_ok=True)
             with open(filename, "w") as f:
                 for pair in group:
@@ -109,11 +109,10 @@ def output_to_text_file(nested_grouped_pairs):
 
 
 def run_srapper():
-    os.system('clear')
     output_to_text_file(grouped_pairs)
 
 
-    print("== CMC Scrapping Completed ==")
+    print("== MEXC All Tickers Retrieved ==")
     print('\n')
     #print("======================================================")
 if __name__ =='__main__':
