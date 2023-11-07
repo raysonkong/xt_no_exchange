@@ -56,7 +56,7 @@ coins = response.json()['data']
 result = []
 for coin in coins:
     if coin['symbol'][-len(WANTED_CURRENCIES[0]):] == WANTED_CURRENCIES[0]:
-        result.append(coin['symbol'].replace('_', ''))
+        result.append(EXCHANGES[0] + ":" + coin['symbol'].replace('_', ''))
 
 #print(result)
 
