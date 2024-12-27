@@ -55,7 +55,7 @@ coins = response.json()["result"]
 
 result = []
 for coin in coins:
-    result.append("xt:" + coin['s'].replace('_', ''))
+    result.append(coin['s'].replace('_', ''))
 
 #print(result)
 
